@@ -1,4 +1,4 @@
-Yes — understood. You want **ONE single Markdown code block containing the entire README**, so you can click **copy** once and paste it directly into `README.md`.
+Absolutely — here is the **complete README in one single Markdown block**, so you can copy everything at once and paste it directly into `README.md`. The source file confirms this is the intended GitHub README structure. 
 
 ````md
 # ⚡ Smart Energy Distribution and Monitoring Grid System
@@ -10,8 +10,6 @@ Yes — understood. You want **ONE single Markdown code block containing the ent
   <img src="https://img.shields.io/badge/XGBoost-ML-green?style=flat" />
   <img src="https://img.shields.io/badge/LightGBM-ML-green?style=flat" />
   <img src="https://img.shields.io/badge/CatBoost-ML-red?style=flat" />
-  <img src="https://img.shields.io/badge/IoT-ThingSpeak-purple?style=flat" />
-  <img src="https://img.shields.io/badge/Dashboard-Grafana-orange?style=flat" />
 </p>
 
 ---
@@ -26,40 +24,6 @@ The ESP32 collects real-time electrical parameters such as **voltage and current
 
 Historical energy data is then processed and used to train Machine Learning regression models including **XGBoost, LightGBM, and CatBoost** for energy consumption forecasting.
 
-The system also integrates a **solar panel, 18650 Li-ion battery, Battery Management System (BMS), and buck converter** to support renewable-energy-powered and battery-backed operation.
-
-### 🔄 Overall Pipeline
-
-```text
-☀️ Solar Energy
-      ↓
-🔋 Battery + BMS
-      ↓
-⚡ Voltage & Current Sensing
-      ↓
-💻 ESP32 Data Acquisition
-      ↓
-📡 Wi-Fi / MQTT / HTTP
-      ↓
-☁️ IoT Data Collection
-      ↓
-🧹 Data Preprocessing
-      ↓
-⚙️ Feature Engineering
-      ↓
-🤖 Machine Learning
-      ↓
-XGBoost / LightGBM / CatBoost
-      ↓
-📊 Model Evaluation
-      ↓
-📈 Energy Consumption Forecasting
-      ↓
-🚨 Anomaly Detection
-      ↓
-🖥️ Dashboard Visualization
-````
-
 ---
 
 ## 🎯 Problem Statement
@@ -68,12 +32,12 @@ Traditional energy distribution systems can lack **real-time monitoring, predict
 
 Without continuous monitoring, it can be difficult to:
 
-* Identify abnormal energy consumption.
-* Analyze historical power usage.
-* Predict future energy requirements.
-* Monitor renewable energy generation.
-* Track battery and system status.
-* Visualize energy consumption in real-time.
+- Identify abnormal energy consumption.
+- Analyze historical power usage.
+- Predict future energy requirements.
+- Monitor renewable energy generation.
+- Track battery and system status.
+- Visualize energy consumption in real-time.
 
 The goal of this project is to develop a smart energy monitoring platform that combines **IoT-based sensing with Machine Learning-based predictive analytics**.
 
@@ -81,30 +45,19 @@ The goal of this project is to develop a smart energy monitoring platform that c
 
 ## 🎯 Objectives
 
-* 🔍 Monitor voltage, current, and power usage in real-time.
-* 📡 Transmit sensor data wirelessly using ESP32 and Wi-Fi.
-* ☀️ Integrate solar energy into the system.
-* 🔋 Provide battery-backed autonomous operation.
-* 📊 Collect and visualize real-time energy data.
-* 📈 Analyze historical energy consumption patterns.
-* 🤖 Forecast future energy consumption using Machine Learning.
-* 🚨 Detect abnormal energy consumption patterns.
-* 🌱 Support efficient and sustainable energy management.
-* 🧩 Build a modular and scalable smart-grid architecture.
+- 🔍 Monitor voltage, current, and power usage in real-time.
+- 📡 Transmit sensor data wirelessly using ESP32 and Wi-Fi.
+- ☀️ Integrate solar energy into the system.
+- 🔋 Provide battery-backed autonomous operation.
+- 📊 Collect and visualize real-time energy data.
+- 📈 Analyze historical energy consumption patterns.
+- 🤖 Forecast future energy consumption using Machine Learning.
+- 🚨 Detect abnormal energy consumption patterns.
+- 🌱 Support efficient and sustainable energy management.
 
 ---
 
-# 🏗️ System Architecture
-
-The system operates across five interconnected layers:
-
-1. **Sensing Layer** – Collects real-time voltage and current measurements.
-2. **Communication Layer** – Transfers sensor data using ESP32 and Wi-Fi.
-3. **Processing Layer** – Cleans, processes, and stores energy data.
-4. **Prediction Layer** – Uses Machine Learning for energy forecasting.
-5. **Presentation Layer** – Displays real-time and predicted energy data.
-
-### Architecture
+## 🏗️ System Architecture
 
 ```text
 ┌──────────────────────────────────────────────┐
@@ -134,78 +87,12 @@ The system operates across five interconnected layers:
 ┌──────────────────────────────────────────────┐
 │                🔌 SENSING                   │
 │          ACS712 / ZMPT101B / Power           │
-└──────────────────────┬───────────────────────┘
-                       │
-                       ▲
-                ☀️ Solar + 🔋 Battery
-```
+└──────────────────────────────────────────────┘
+````
 
 ---
 
-# 🔄 End-to-End Workflow
-
-```text
-                 ☀️ SOLAR PANEL
-                       │
-                       ▼
-                🔋 BATTERY + BMS
-                       │
-                       ▼
-                🔌 POWER MANAGEMENT
-                       │
-                       ▼
-                  ⚡ ESP32
-                       │
-          ┌────────────┴────────────┐
-          │                         │
-          ▼                         ▼
-    🔌 ZMPT101B                 🔋 ACS712
-    Voltage Sensor              Current Sensor
-          │                         │
-          └────────────┬────────────┘
-                       │
-                       ▼
-                 📡 Wi-Fi
-                       │
-                 MQTT / HTTP
-                       │
-                       ▼
-                 ☁️ IoT Platform
-                       │
-                       ▼
-                 💾 Energy Data
-                       │
-                       ▼
-              🧹 Data Processing
-                       │
-                       ▼
-              ⚙️ Feature Engineering
-                       │
-                       ▼
-                 🤖 ML Models
-                       │
-          ┌────────────┼────────────┐
-          ▼            ▼            ▼
-       XGBoost      LightGBM      CatBoost
-          │            │            │
-          └────────────┼────────────┘
-                       │
-                       ▼
-                📊 Evaluation
-                       │
-                       ▼
-                📈 Forecasting
-                       │
-                       ▼
-                🚨 Anomaly Detection
-                       │
-                       ▼
-                 🖥️ Dashboard
-```
-
----
-
-# 🔌 Hardware Components
+## 🔌 Hardware Components
 
 | Component                | Purpose                                      |
 | ------------------------ | -------------------------------------------- |
@@ -222,166 +109,24 @@ The system operates across five interconnected layers:
 
 ---
 
-# 🧰 Technologies Used
+## 🧰 Technologies Used
 
-| Category               | Technologies / Components     |
-| ---------------------- | ----------------------------- |
-| **Microcontroller**    | ESP32                         |
-| **Current Sensor**     | ACS712                        |
-| **Voltage Sensor**     | ZMPT101B                      |
-| **Power Source**       | Solar Panel                   |
-| **Energy Storage**     | 18650 Li-ion Battery          |
-| **Battery Protection** | BMS                           |
-| **Voltage Regulation** | Buck Converter                |
-| **Communication**      | Wi-Fi, MQTT, HTTP             |
-| **Programming**        | Python, Arduino               |
-| **Machine Learning**   | XGBoost, LightGBM, CatBoost   |
-| **Data Processing**    | Pandas, NumPy                 |
-| **Development**        | Jupyter Notebook, Arduino IDE |
-| **IoT Platform**       | ThingSpeak                    |
-| **Dashboard**          | Grafana                       |
-| **Data Flow**          | Node-RED                      |
+| Category             | Technologies                  |
+| -------------------- | ----------------------------- |
+| **Microcontroller**  | ESP32                         |
+| **Sensors**          | ACS712, ZMPT101B              |
+| **Programming**      | Python, Arduino               |
+| **Machine Learning** | XGBoost, LightGBM, CatBoost   |
+| **Data Processing**  | Pandas, NumPy                 |
+| **Communication**    | Wi-Fi, MQTT, HTTP             |
+| **IoT Platform**     | ThingSpeak                    |
+| **Dashboard**        | Grafana                       |
+| **Data Flow**        | Node-RED                      |
+| **Development**      | Jupyter Notebook, Arduino IDE |
 
 ---
 
-# ⚡ Power Measurement
-
-The system monitors voltage and current using dedicated sensors.
-
-### Voltage Measurement
-
-The **ZMPT101B voltage sensor** is used to measure voltage values.
-
-### Current Measurement
-
-The **ACS712 current sensor** measures current flowing through the monitored load.
-
-### Power Calculation
-
-Electrical power can be calculated using:
-
-```text
-P = V × I
-```
-
-Where:
-
-```text
-P = Electrical Power
-V = Voltage
-I = Current
-```
-
-The calculated power value can then be transmitted to the IoT platform for monitoring and analysis.
-
----
-
-# ☀️ Renewable Energy Integration
-
-The system incorporates solar energy to support autonomous operation.
-
-### Energy Flow
-
-```text
-☀️ Solar Panel
-      ↓
-🔋 Battery Management System
-      ↓
-🔋 18650 Li-ion Battery
-      ↓
-🔌 Buck Converter
-      ↓
-⚡ ESP32 + Sensors
-```
-
-### Power System Components
-
-* ☀️ Solar Panel
-* 🔋 18650 Li-ion Battery
-* 🛡️ Battery Management System
-* 🔌 Buck Converter
-* 🔀 Relay
-* 🧯 Fuse
-* 🛡️ Isolation Circuit
-
-The solar panel provides renewable energy while the battery provides energy storage and backup.
-
-> ⚠️ **Safety Notice:** Electrical systems involving mains voltage can be hazardous. Appropriate isolation, protection components, safe wiring, and qualified supervision should be used during hardware implementation.
-
----
-
-# 📡 IoT Communication
-
-The ESP32 acts as the communication bridge between the physical energy monitoring system and the cloud/dashboard layer.
-
-### Communication Technologies
-
-* 📡 Wi-Fi
-* 📬 MQTT
-* 🌐 HTTP
-
-### IoT Data Flow
-
-```text
-Sensors
-   ↓
-ESP32
-   ↓
-Wi-Fi
-   ↓
-MQTT / HTTP
-   ↓
-IoT Platform
-   ↓
-Data Storage
-   ↓
-Dashboard
-```
-
-The system can transmit:
-
-```text
-Voltage
-Current
-Power
-Energy Consumption
-Timestamp
-System Status
-```
-
----
-
-# 📊 Data Processing
-
-The collected energy data is prepared for Machine Learning through several stages.
-
-### Processing Workflow
-
-```text
-Raw Energy Data
-       ↓
-Data Inspection
-       ↓
-Data Cleaning
-       ↓
-Missing Value Handling
-       ↓
-Feature Engineering
-       ↓
-Normalization / Scaling
-       ↓
-Train-Test Split
-       ↓
-Machine Learning
-```
-
-The processed historical data is then used to train and evaluate the forecasting models.
-
----
-
-# 🤖 Machine Learning Module
-
-The Machine Learning component is responsible for **energy consumption forecasting**.
+## 🤖 Machine Learning
 
 Three regression models were evaluated:
 
@@ -389,150 +134,44 @@ Three regression models were evaluated:
 * ⚡ LightGBM
 * 🐱 CatBoost
 
-These models use historical energy consumption data to learn patterns and predict future energy usage.
+### 📊 Model Performance
 
----
-
-# 🌲 XGBoost
-
-**XGBoost** is a gradient boosting framework designed for efficient and accurate predictive modeling.
-
-### Key Characteristics
-
-* High predictive performance
-* Fast training
-* Handles nonlinear relationships
-* Suitable for structured/tabular data
-* Effective for regression problems
-
----
-
-# ⚡ LightGBM
-
-**LightGBM** is a lightweight gradient boosting framework optimized for efficient training.
-
-### Key Characteristics
-
-* Fast training
-* Efficient memory usage
-* Lightweight implementation
-* Suitable for large datasets
-* Strong regression performance
-
----
-
-# 🐱 CatBoost
-
-**CatBoost** is a gradient boosting algorithm used for predictive analytics and regression.
-
-In this project, CatBoost achieved the highest reported R² score among the evaluated models.
-
----
-
-# 📊 Machine Learning Model Performance
-
-| Model        |   R² Score | MSE        | Notes                           |
-| ------------ | ---------: | ---------- | ------------------------------- |
-| **XGBoost**  |     0.9965 | Medium     | High accuracy and fast training |
-| **LightGBM** |     0.9967 | Low        | Lightweight and efficient       |
+| Model        | R² Score   | MSE        | Notes                           |
+| ------------ | ---------- | ---------- | ------------------------------- |
+| **XGBoost**  | 0.9965     | Medium     | High accuracy and fast training |
+| **LightGBM** | 0.9967     | Low        | Lightweight and efficient       |
 | **CatBoost** | **0.9971** | **Lowest** | Highest reported performance    |
 
 ### 🏆 Best Reported Result
 
 ```text
-Model      : CatBoost
-R² Score   : 0.9971
-MSE        : Lowest among evaluated models
+Model    : CatBoost
+R² Score : 0.9971
 ```
 
 Based on the reported experimental results, **CatBoost was selected as the primary forecasting model**.
 
-> **Note:** Model performance depends on the dataset, feature engineering, preprocessing, train/test split, and experimental configuration used.
+> **Note:** Model performance depends on the dataset, preprocessing, features, and experimental configuration.
 
 ---
 
-# 📈 Model Evaluation
-
-The Machine Learning models were evaluated using regression metrics.
-
-## R² Score
-
-R² measures how well the model explains the variance in the target variable.
-
-```text
-R² = 1 - (SS_res / SS_tot)
-```
-
-A value closer to `1` indicates a stronger fit on the evaluated data.
-
----
-
-## Mean Squared Error
-
-MSE measures the average squared difference between actual and predicted values.
-
-```text
-MSE = (1/n) × Σ(yᵢ - ŷᵢ)²
-```
-
-Lower MSE values indicate lower prediction error.
-
----
-
-# 🧪 Machine Learning Pipeline
-
-```text
-              📊 Historical Energy Data
-                         │
-                         ▼
-                 🧹 Data Preprocessing
-                         │
-                         ▼
-                 ⚙️ Feature Engineering
-                         │
-                         ▼
-                   ✂️ Train/Test Split
-                         │
-             ┌───────────┼───────────┐
-             ▼           ▼           ▼
-          XGBoost     LightGBM    CatBoost
-             │           │           │
-             └───────────┼───────────┘
-                         ▼
-                  📊 Model Evaluation
-                         │
-                         ▼
-                   🤖 Model Selection
-                         │
-                         ▼
-                  📈 Energy Forecast
-                         │
-                         ▼
-                  🚨 Anomaly Detection
-```
-
----
-
-# 🚨 Anomaly Detection
+## 🚨 Anomaly Detection
 
 The system can identify abnormal energy consumption patterns by comparing observed consumption with expected behavior.
 
-### Detection Workflow
-
 ```text
-Real-Time Energy Consumption
-            ↓
-Expected Energy Consumption
-            ↓
-       Compare Values
-            ↓
-      ┌─────┴─────┐
-      │           │
-    Normal     Abnormal
-      │           │
-      ▼           ▼
-   Continue     🚨 Alert
-  Monitoring
+Real-Time Energy
+       ↓
+Expected Consumption
+       ↓
+Compare Values
+       ↓
+  ┌─────┴─────┐
+  ▼           ▼
+Normal    Abnormal
+  ▼           ▼
+Continue   🚨 Alert
+Monitoring
 ```
 
 Potential anomalies include:
@@ -544,128 +183,94 @@ Potential anomalies include:
 
 ---
 
-# 🖥️ Dashboard & Visualization
+## ☀️ Renewable Energy Integration
 
-The system supports real-time monitoring and visualization using:
+```text
+☀️ Solar Panel
+      ↓
+🔋 Battery + BMS
+      ↓
+🔌 Buck Converter
+      ↓
+⚡ ESP32 + Sensors
+```
 
-### 📊 ThingSpeak
+The renewable-energy subsystem provides:
 
-Used for IoT-based data collection and visualization.
+* Solar energy generation
+* Battery storage
+* Regulated power
+* Backup operation
+* Protection mechanisms
 
-### 📈 Grafana
-
-Can be used to build interactive dashboards for monitoring energy parameters and consumption trends.
-
-### 🔄 Node-RED
-
-Can be used for:
-
-* Data flow management
-* IoT integration
-* Automation
-* Data processing
-* Dashboard connectivity
+> ⚠️ Electrical systems involving mains voltage can be hazardous. Proper isolation, protection, safe wiring, and qualified supervision should be used.
 
 ---
 
-# 📊 Dashboard Features
+## 📊 Dashboard
 
-### Real-Time Monitoring
+The system supports real-time visualization using:
 
-```text
-Voltage      → Live
-Current      → Live
-Power        → Live
-Energy       → Live
-```
+* **ThingSpeak**
+* **Grafana**
+* **Node-RED**
 
-### Predictive Analytics
+The dashboard can display:
 
 ```text
-Historical Energy Data
-          ↓
-      ML Model
-          ↓
-Future Consumption
-          ↓
-       Dashboard
-```
-
-### System Monitoring
-
-```text
-🔋 Battery Status
+⚡ Voltage
+🔋 Current
+📊 Power
+📈 Energy Consumption
+🤖 Predicted Consumption
+🚨 Anomaly Alerts
 ☀️ Solar Status
-⚡ Power Usage
-📈 Energy Trends
-🚨 Load Anomalies
+🔋 Battery Status
 ```
 
 ---
 
-# 🔄 Complete System Workflow
+## 🔄 Complete Workflow
 
 ```text
-             ☀️ SOLAR ENERGY
-                    │
-                    ▼
-             🔋 BATTERY SYSTEM
-                    │
-                    ▼
-              ⚡ ENERGY LOAD
-                    │
-                    ▼
-          ┌────────────────────┐
-          │       SENSORS      │
-          │                    │
-          │ ACS712  ZMPT101B   │
-          └──────────┬─────────┘
-                     │
-                     ▼
-                  💻 ESP32
-                     │
-                     ▼
-                  📡 Wi-Fi
-                     │
-                MQTT / HTTP
-                     │
-                     ▼
-               ☁️ IoT Platform
-                     │
-                     ▼
-                💾 Energy Data
-                     │
-                     ▼
-              🧹 Preprocessing
-                     │
-                     ▼
-            ⚙️ Feature Engineering
-                     │
-                     ▼
-                🤖 ML Models
-                     │
-          ┌──────────┼──────────┐
-          ▼          ▼          ▼
-       XGBoost    LightGBM    CatBoost
-          │          │          │
-          └──────────┼──────────┘
-                     │
-                     ▼
-              📊 Evaluation
-                     │
-                     ▼
-              📈 Forecasting
-                     │
-                     ▼
-             🚨 Anomaly Detection
-                     │
-                     ▼
-               🖥️ Dashboard
+☀️ Solar Energy
+       ↓
+🔋 Battery System
+       ↓
+⚡ Energy Load
+       ↓
+🔌 Voltage & Current Sensors
+       ↓
+💻 ESP32
+       ↓
+📡 Wi-Fi
+       ↓
+MQTT / HTTP
+       ↓
+☁️ IoT Platform
+       ↓
+💾 Energy Data
+       ↓
+🧹 Data Preprocessing
+       ↓
+⚙️ Feature Engineering
+       ↓
+🤖 ML Models
+       ↓
+XGBoost / LightGBM / CatBoost
+       ↓
+📊 Model Evaluation
+       ↓
+📈 Energy Forecast
+       ↓
+🚨 Anomaly Detection
+       ↓
+🖥️ Dashboard
 ```
 
 ---
 
-# 📁 Project Structure
+## 📁 Project Structure
 
 ```text
 Smart-Energy-Distribution-and-Monitoring-Grid-System/
@@ -704,78 +309,46 @@ Smart-Energy-Distribution-and-Monitoring-Grid-System/
 └── 📄 README.md
 ```
 
-> The exact folder structure may vary depending on the repository implementation.
-
 ---
 
-# ⚙️ Installation & Setup
+## ⚙️ Installation & Setup
 
-## 1️⃣ Clone the Repository
+### 1️⃣ Clone the Repository
 
 ```bash
 git clone https://github.com/BSRohit20/Smart-Energy-Distribution-and-Monitoring-Grid-System.git
-```
-
-Navigate into the project:
-
-```bash
 cd Smart-Energy-Distribution-and-Monitoring-Grid-System
 ```
 
----
+### 2️⃣ Create Virtual Environment
 
-## 2️⃣ Create a Virtual Environment
-
-### Windows
+#### Windows
 
 ```bash
 python -m venv venv
 venv\Scripts\activate
 ```
 
-### Linux / macOS
+#### Linux / macOS
 
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 ```
 
----
-
-## 3️⃣ Install Dependencies
+### 3️⃣ Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Typical Python dependencies include:
-
-```text
-numpy
-pandas
-scikit-learn
-xgboost
-lightgbm
-catboost
-matplotlib
-jupyter
-```
-
----
-
-## 4️⃣ Launch Jupyter Notebook
+### 4️⃣ Launch Jupyter Notebook
 
 ```bash
 jupyter notebook
 ```
 
-or:
-
-```bash
-jupyter lab
-```
-
-Run the Machine Learning workflow sequentially:
+Run the Machine Learning workflow:
 
 ```text
 1. Load Dataset
@@ -794,9 +367,9 @@ Run the Machine Learning workflow sequentially:
 
 ---
 
-# 🔌 ESP32 Setup
+## 🔌 ESP32 Setup
 
-## Requirements
+### Requirements
 
 * ESP32 Development Board
 * ACS712 Current Sensor
@@ -805,7 +378,7 @@ Run the Machine Learning workflow sequentially:
 * Arduino IDE
 * Appropriate power supply
 
-## Setup Steps
+### Setup Steps
 
 1. Install Arduino IDE.
 2. Configure ESP32 board support.
@@ -821,86 +394,43 @@ Run the Machine Learning workflow sequentially:
 
 ---
 
-# 🔋 Power System Setup
+## 🌍 Applications
 
-The power subsystem follows:
-
-```text
-☀️ Solar Panel
-      ↓
-🔋 BMS
-      ↓
-🔋 18650 Battery
-      ↓
-🔌 Buck Converter
-      ↓
-⚡ ESP32 + Sensors
-```
-
-The power system provides:
-
-* Renewable energy generation
-* Battery storage
-* Regulated power
-* Backup operation
-* Protection mechanisms
-
----
-
-# 📊 Example Data Format
-
-The sensor data can conceptually be transmitted in a structure such as:
-
-```json
-{
-  "voltage": 230.0,
-  "current": 2.4,
-  "power": 552.0,
-  "timestamp": "2026-09-16T12:00:00"
-}
-```
-
-The exact fields and communication format depend on the implemented ESP32 firmware and IoT configuration.
-
----
-
-# 🌍 Applications
-
-## 🏠 Smart Homes
+### 🏠 Smart Homes
 
 * Household energy monitoring
 * Appliance consumption analysis
 * Energy forecasting
 * Load anomaly detection
 
-## 🏢 Offices
+### 🏢 Offices
 
 * Building energy monitoring
 * Consumption analysis
 * Peak-load monitoring
 * Predictive energy management
 
-## 🏭 Small Industrial Units
+### 🏭 Small Industrial Units
 
 * Equipment energy monitoring
 * Load analysis
 * Energy forecasting
 * Anomaly detection
 
-## ☀️ Renewable Energy Systems
+### ☀️ Renewable Energy Systems
 
 * Solar energy monitoring
 * Battery monitoring
 * Renewable energy integration
 * Autonomous IoT operation
 
-## 🏙️ Smart Grid Infrastructure
+### 🏙️ Smart Grid Infrastructure
 
 The architecture can be extended using multiple IoT nodes to support distributed energy monitoring across multiple buildings or locations.
 
 ---
 
-# ✨ Key Features
+## ✨ Key Features
 
 | Feature                     | Description                             |
 | --------------------------- | --------------------------------------- |
@@ -912,16 +442,14 @@ The architecture can be extended using multiple IoT nodes to support distributed
 | 🤖 **ML Forecasting**       | Predicts future energy consumption      |
 | 🚨 **Anomaly Detection**    | Identifies unusual energy behavior      |
 | 📈 **Predictive Analytics** | Analyzes historical energy patterns     |
-| 🧩 **Modular Architecture** | Supports future system expansion        |
+| 🧩 **Modular Architecture** | Supports future expansion               |
 | 🌱 **Sustainable Design**   | Integrates renewable energy             |
 
 ---
 
-# 🧠 Key Learning Outcomes
+## 🧠 Key Learning Outcomes
 
-This project demonstrates practical knowledge in multiple technical areas.
-
-## 🌐 Internet of Things
+### 🌐 IoT
 
 * ESP32 programming
 * Sensor integration
@@ -929,7 +457,7 @@ This project demonstrates practical knowledge in multiple technical areas.
 * MQTT/HTTP communication
 * IoT data transmission
 
-## ⚡ Embedded Systems
+### ⚡ Embedded Systems
 
 * Microcontroller programming
 * Voltage sensing
@@ -937,7 +465,7 @@ This project demonstrates practical knowledge in multiple technical areas.
 * Power measurement
 * Hardware integration
 
-## 🤖 Machine Learning
+### 🤖 Machine Learning
 
 * Regression
 * XGBoost
@@ -947,7 +475,7 @@ This project demonstrates practical knowledge in multiple technical areas.
 * Model comparison
 * Model evaluation
 
-## 📊 Data Science
+### 📊 Data Science
 
 * Data preprocessing
 * Feature engineering
@@ -955,7 +483,7 @@ This project demonstrates practical knowledge in multiple technical areas.
 * Data visualization
 * Historical trend analysis
 
-## ☀️ Renewable Energy
+### ☀️ Renewable Energy
 
 * Solar energy integration
 * Battery storage
@@ -964,32 +492,9 @@ This project demonstrates practical knowledge in multiple technical areas.
 
 ---
 
-# 🔬 Technical Highlights
+## 🚀 Future Enhancements
 
-```text
-              ⚡ SMART ENERGY SYSTEM
-                        │
-         ┌──────────────┼──────────────┐
-         │              │              │
-        IoT             ML       Renewable Energy
-         │              │              │
-       ESP32        Forecasting        Solar
-       Sensors      XGBoost           Battery
-         │          LightGBM
-         │          CatBoost
-         │              │
-         └──────────────┼──────────────┘
-                        │
-                        ▼
-               Intelligent Energy
-                   Monitoring
-```
-
----
-
-# 🚀 Future Enhancements
-
-## 🤖 Advanced Machine Learning
+### 🤖 Advanced Machine Learning
 
 * LSTM-based energy forecasting
 * GRU-based forecasting
@@ -998,7 +503,7 @@ This project demonstrates practical knowledge in multiple technical areas.
 * Automated hyperparameter optimization
 * Online model updating
 
-## 🧠 Intelligent Energy Management
+### 🧠 Intelligent Energy Management
 
 * Automated load balancing
 * Demand-response mechanisms
@@ -1006,7 +511,7 @@ This project demonstrates practical knowledge in multiple technical areas.
 * Smart appliance scheduling
 * Predictive maintenance
 
-## 📱 Mobile Application
+### 📱 Mobile Application
 
 A dedicated mobile application could provide:
 
@@ -1022,7 +527,7 @@ A dedicated mobile application could provide:
 ☀️ Solar Status
 ```
 
-## ☁️ Cloud Integration
+### ☁️ Cloud Integration
 
 Potential cloud functionality includes:
 
@@ -1032,26 +537,24 @@ Potential cloud functionality includes:
 * Automated reports
 * Cloud-based ML inference
 
-## 🌐 Multi-Node Smart Grid
+### 🌐 Multi-Node Smart Grid
 
 Multiple ESP32 nodes could be deployed across different locations:
 
 ```text
                  ☁️ CENTRAL PLATFORM
                          │
-            ┌────────────┼────────────┐
-            │            │            │
-            ▼            ▼            ▼
-         ESP32-1      ESP32-2      ESP32-3
-            │            │            │
-         Sensors      Sensors      Sensors
+             ┌───────────┼───────────┐
+             │           │           │
+             ▼           ▼           ▼
+          ESP32-1     ESP32-2     ESP32-3
+             │           │           │
+          Sensors     Sensors     Sensors
 ```
-
-This architecture can support distributed energy monitoring across multiple buildings or locations.
 
 ---
 
-# ⚠️ Limitations
+## ⚠️ Limitations
 
 The system's performance depends on:
 
@@ -1070,7 +573,7 @@ The reported Machine Learning metrics should therefore be interpreted within the
 
 ---
 
-# 📊 Results Summary
+## 📊 Results Summary
 
 | Category                | Details                         |
 | ----------------------- | ------------------------------- |
@@ -1091,7 +594,7 @@ The reported Machine Learning metrics should therefore be interpreted within the
 
 ---
 
-# 📚 Project Documentation
+## 📚 Project Documentation
 
 Detailed technical documentation, circuit designs, implementation details, experimental results, and academic references are available in the project report.
 
@@ -1101,7 +604,7 @@ Detailed technical documentation, circuit designs, implementation details, exper
 
 ---
 
-# 🎓 Academic & Research Value
+## 🎓 Academic & Research Value
 
 This project demonstrates the practical integration of:
 
@@ -1118,7 +621,7 @@ The project demonstrates how **real-world IoT energy data can be combined with M
 
 ---
 
-# 🏆 Project Highlights
+## 🏆 Project Highlights
 
 * ⚡ Real-time voltage, current, and power monitoring
 * 📡 ESP32-based wireless IoT communication
@@ -1134,9 +637,9 @@ The project demonstrates how **real-world IoT energy data can be combined with M
 
 ---
 
-# 👨‍💻 Author
+## 👨‍💻 Author
 
-## Rishi Anand
+### Rishi Anand
 
 🎓 **B.Tech — Computer Science & Engineering (Artificial Intelligence & Machine Learning)**
 
@@ -1154,7 +657,7 @@ The project demonstrates how **real-world IoT energy data can be combined with M
 
 ---
 
-# 📬 Contact
+## 📬 Contact
 
 📧 **Email:** [rishianandv@gmail.com](mailto:rishianandv@gmail.com)
 
@@ -1164,17 +667,15 @@ The project demonstrates how **real-world IoT energy data can be combined with M
 
 ---
 
-# ⭐ Acknowledgement
+## ⭐ Acknowledgement
 
 This project demonstrates the integration of **IoT, Machine Learning, renewable energy, embedded systems, predictive analytics, and real-time monitoring** into a smart energy management solution.
 
 ---
 
-<div align="center">
-
 ## ⚡ Monitor → Analyze → Predict → Detect → Optimize
 
 ⭐ **If you found this project useful, consider giving the repository a star!**
 
-</div>
+```
 ```
