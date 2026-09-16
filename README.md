@@ -1,87 +1,57 @@
 # ⚡ Smart Energy Distribution and Monitoring Grid System
 
-An **IoT-powered, ML-enhanced smart grid** that enables **real-time energy monitoring**, **solar-powered autonomy**, and **predictive analytics** for efficient and sustainable power distribution.
+<p align="center">
+  <img src="https://img.shields.io/badge/ESP32-IoT-blue?style=flat&logo=espressif" />
+  <img src="https://img.shields.io/badge/Python-3.x-blue?style=flat&logo=python" />
+  <img src="https://img.shields.io/badge/Machine%20Learning-Regression-orange?style=flat&logo=scikit-learn" />
+  <img src="https://img.shields.io/badge/XGBoost-ML-green?style=flat" />
+  <img src="https://img.shields.io/badge/LightGBM-ML-green?style=flat" />
+  <img src="https://img.shields.io/badge/CatBoost-ML-red?style=flat" />
+  <img src="https://img.shields.io/badge/IoT-ThingSpeak-purple?style=flat" />
+  <img src="https://img.shields.io/badge/Dashboard-Grafana-orange?style=flat" />
+</p>
 
 ---
 
-## 🌐 Overview
+## 🚀 Project Overview
 
-As global energy demand soars and sustainability becomes critical, traditional power grids struggle with inefficiencies and a lack of real-time insight. This project introduces a **Smart Energy Distribution and Monitoring Grid System**—a modular, scalable platform combining **IoT, machine learning**, and **renewable energy** to optimize power consumption across homes, offices, and small industrial units.
+This project implements an **IoT-powered, Machine Learning-enhanced Smart Energy Distribution and Monitoring Grid System** designed for real-time energy monitoring, renewable energy integration, predictive analytics, and intelligent energy management.
 
----
+The system combines **ESP32, voltage and current sensors, solar energy, battery storage, IoT communication, Machine Learning, and real-time dashboards** to monitor and analyze electrical energy consumption.
 
-## 🎯 Objectives
+The ESP32 collects real-time electrical parameters such as **voltage and current**, calculates power consumption, and transmits the data wirelessly using **Wi-Fi, MQTT, or HTTP**.
 
-- 🔍 **Monitor** voltage, current, and power usage in real-time.
-- 📡 **Transmit** sensor data wirelessly using ESP32 and Wi-Fi.
-- 🔋 **Operate autonomously** using solar energy and battery backup.
-- 📊 **Forecast** future power consumption using ML regression models.
-- 🖥️ **Visualize** real-time and predicted data via a dashboard.
+Historical energy data is then processed and used to train Machine Learning regression models including **XGBoost, LightGBM, and CatBoost** for energy consumption forecasting.
 
----
+The system also integrates a **solar panel, 18650 Li-ion battery, Battery Management System (BMS), and buck converter** to support renewable-energy-powered and battery-backed operation.
 
-## 🧰 Technologies Used
+### 🔄 Overall Pipeline
 
-| Domain              | Tools/Components                                 |
-|---------------------|--------------------------------------------------|
-| Microcontroller     | ESP32                                            |
-| Sensors             | ACS712 (Current), ZMPT101B (Voltage)            |
-| Power Supply        | Solar Panel, 18650 Li-ion Battery, BMS, Buck Converter |
-| Communication       | WiFi, MQTT/HTTP Protocol                        |
-| ML Algorithms       | XGBoost, LightGBM, CatBoost                     |
-| Data Visualization  | ThingSpeak, Grafana, Node-RED                   |
-| Language & Tools    | Python, Jupyter, Arduino IDE                    |
-
----
-
-## 📐 System Architecture
-
-The system operates across five interconnected layers:
-
-1. **Sensing Layer**: Real-time voltage and current monitoring using sensors.
-2. **Communication Layer**: Wireless data transmission via ESP32 and WiFi.
-3. **Processing Layer**: Data cleaning, normalization, and storage.
-4. **Prediction Layer**: ML-based forecasting using historical energy data.
-5. **Presentation Layer**: Dashboard displaying real-time and predicted data.
-
----
-
-## 🧪 ML Model Performance
-
-| Model     | R² Score | MSE            | Notes                        |
-|-----------|----------|----------------|------------------------------|
-| XGBoost   | 0.9965   | Medium         | High accuracy, fast training |
-| LightGBM  | 0.9967   | Low            | Lightweight, efficient       |
-| CatBoost  | 0.9971   | **Lowest**     | Best performance overall     |
-
-📈 **CatBoost** was selected as the primary model due to its superior forecasting accuracy and generalization.
-
----
-
-## 💻 Dashboard Preview
-
-The system features a responsive dashboard showing:
-
-- 🔌 Real-time energy usage (voltage, current, power)
-- 📈 Predicted consumption trends
-- 🚨 Load anomalies and alert notifications
-- 🌞 Solar charging and battery status (optional)
-
-> Built with Grafana/Node-RED for live charts and seamless UI.
-
----
-
-## 🔋 Power System
-
-- ☀️ **Solar Panel**: Harvests daylight energy
-- 🔋 **18650 Battery**: Rechargeable backup with BMS
-- 🔌 **Buck Converter**: Ensures safe 3.3V for ESP32 and peripherals
-- 🧯 **Safety Features**: Fuses, relays, and isolation circuits
-
----
-
-## 📚 References
-
-> Refer to the [Project Report (PDF)](https://github.com/BSRohit20/Smart-Energy-Distribution-and-Monitoring-Grid-System/blob/main/Smart%20Energy%20Distribution%20and%20Monitoring%20Grid%20System/Smart%20Energy%20Distribution%20and%20Monitoring%20Grid%20System.pdf) for detailed technical documentation, circuit designs, and references to academic sources.
-
----
+```text
+☀️ Solar Energy
+      ↓
+🔋 Battery + BMS
+      ↓
+⚡ Voltage & Current Sensing
+      ↓
+💻 ESP32 Data Acquisition
+      ↓
+📡 Wi-Fi / MQTT / HTTP
+      ↓
+☁️ IoT Data Collection
+      ↓
+🧹 Data Preprocessing
+      ↓
+⚙️ Feature Engineering
+      ↓
+🤖 Machine Learning
+      ↓
+XGBoost / LightGBM / CatBoost
+      ↓
+📊 Model Evaluation
+      ↓
+📈 Energy Consumption Forecasting
+      ↓
+🚨 Anomaly Detection
+      ↓
+🖥️ Dashboard Visualization
